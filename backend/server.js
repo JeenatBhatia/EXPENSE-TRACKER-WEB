@@ -7,7 +7,7 @@ const connectDB = require("./config/db");
 const incomeRoutes = require("./routes/incomeRoutes");
 const authRoutes = require("./routes/authRoutes");
 const expenseRoutes = require("./routes/expenseRoutes");
-const dashboardRoutes = require("./routes/dashboardRoutes"); // fixed variable name
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 // Load env variables
 dotenv.config();
@@ -32,6 +32,6 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// Start server
-const PORT = 8000;
+// Dynamic port for Vercel
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
